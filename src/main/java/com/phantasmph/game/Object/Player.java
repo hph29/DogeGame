@@ -38,7 +38,7 @@ public class Player extends GameObject {
 
         collision();
 
-        Handler.getInstance().addObject(new Trail(pos, new Vec2(28, 28), 0.1f, color));
+        Handler.getInstance().addObject(new Trail(new Vec2(pos.x, pos.y), new Vec2(32, 32), 0.1f, color));
     }
 
     public void collision() {
@@ -47,6 +47,10 @@ public class Player extends GameObject {
             if (tempObject.getId() == ID.BasicEnemy) {
                 if (getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 2;
+                }
+            } else if (tempObject.getId() == ID.SmartEnemy) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    HUD.HEALTH -= 1;
                 }
             }
         }

@@ -29,8 +29,12 @@ public class Spawner extends GameObject {
     }
 
     public void tick() {
-        if (levelCounter != GameManger.level && GameManger.level < 5) {
-            EnemyFactory.getInstance().addSmartEnemy();
+        if (levelCounter != GameManger.level) {
+            if (GameManger.level < 5) {
+                EnemyFactory.getInstance().addBasicEnemy();
+            } else if (GameManger.level == 5) {
+                EnemyFactory.getInstance().addSmartEnemy();
+            }
             levelCounter = GameManger.level;
         }
     }

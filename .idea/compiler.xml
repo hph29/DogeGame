@@ -25,7 +25,7 @@
         <module name="DogeGame" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="DogeGame" target="1.5" />
     </bytecodeTargetLevel>
   </component>

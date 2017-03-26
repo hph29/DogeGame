@@ -43,8 +43,8 @@ public class SmartEnemy extends GameObject {
         pos.x += vel.x * unit_x;
         pos.y += vel.y * unit_y;
 
-        if (pos.x <= 0 || pos.x >= Game.WIDTH - size.x) vel.x *= -1;
-        if (pos.y <= 0 || pos.y >= Game.HEIGHT - size.y) vel.y *= -1;
+        vel.x = (pos.x <= 0) ? Math.abs(vel.x) : (pos.x >= Game.WIDTH - size.x) ? Math.abs(vel.x) * -1 : vel.x;
+        vel.y = (pos.y <= 0) ? Math.abs(vel.y) : (pos.y >= Game.WIDTH - size.y) ? Math.abs(vel.y) * -1 : vel.y;
 
         vel = new Vec2(vel.x, vel.y);
 

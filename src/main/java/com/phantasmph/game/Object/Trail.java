@@ -1,6 +1,7 @@
 package com.phantasmph.game.Object;
 
 import com.phantasmph.game.Handler;
+import com.phantasmph.game.Utility.C;
 import com.phantasmph.game.Utility.ID;
 import com.phantasmph.game.Utility.Vec2;
 
@@ -13,15 +14,10 @@ public class Trail extends GameObject {
 
     private float life;
     private float alpha = 1;
-    private Vec2 pos;
-    private Vec2 size;
-    private Color color;
 
     public Trail(Vec2 pos, Vec2 size, float life, Color color) {
+        super(pos, C.ZERO_VELOCITY, size, ID.Trail, color);
         this.life = life;
-        this.size = size;
-        this.pos = pos;
-        this.color = color;
     }
 
     public ID getId() {
@@ -44,10 +40,6 @@ public class Trail extends GameObject {
         g2d.fillRect((int) this.pos.x, (int) this.pos.y, (int) size.x, (int) size.y);
 
         g2d.setComposite(getTransparent(1));
-    }
-
-    public Rectangle getBounds() {
-        return null;
     }
 
     private AlphaComposite getTransparent(float alpha) {

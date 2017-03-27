@@ -2,6 +2,7 @@ package com.phantasmph.game.Object;
 
 import com.phantasmph.game.Game;
 import com.phantasmph.game.Handler;
+import com.phantasmph.game.Utility.C;
 import com.phantasmph.game.Utility.ID;
 import com.phantasmph.game.Utility.Utility;
 import com.phantasmph.game.Utility.Vec2;
@@ -13,20 +14,10 @@ import java.awt.*;
  */
 public class Player extends GameObject {
 
-    private Vec2 pos;
-    private Vec2 vel;
-    private Vec2 size;
-    private ID id;
-    private Color color;
-    private Handler handler;
-
     public Player() {
-        this.size = new Vec2(32, 32);
-        this.pos = Utility.midPos(size);
-        this.vel = new Vec2(0, 0);
-        this.id = ID.Player;
-        this.color = Color.white;
-        this.handler = Handler.getInstance();
+
+        super(C.MIDDLE_POS, C.ZERO_VELOCITY, C.MIDDLE_SIZE, ID.Player, Color.WHITE);
+
     }
 
     public void tick() {
@@ -42,14 +33,16 @@ public class Player extends GameObject {
     }
 
     public void collision() {
-        for (int i = 0; i < handler.getObjects().size(); i++) {
-            GameObject tempObject = handler.getObjects().get(i);
-            if (tempObject.getId() == ID.BasicEnemy) {
-                if (getBounds().intersects(tempObject.getBounds())) {
+        this.bounds = new Rectangle((int) pos.x, (int) pos.y, (int) size.x, (int) size.y);
+
+        for (int i = 0; i < Handler.getInstance().getObjects().size(); i++) {
+            GameObject tempObject = Handler.getInstance().getObjects().get(i);
+            if (tempObject.id == ID.BasicEnemy) {
+                if (bounds.intersects(tempObject.bounds)) {
                     HUD.HEALTH -= 2;
                 }
-            } else if (tempObject.getId() == ID.SmartEnemy) {
-                if (getBounds().intersects(tempObject.getBounds())) {
+            } else if (tempObject.id == ID.SmartEnemy) {
+                if (bounds.intersects(tempObject.bounds)) {
                     HUD.HEALTH -= 1;
                 }
             }
@@ -62,47 +55,4 @@ public class Player extends GameObject {
         g.fillRect((int) pos.x, (int) pos.y, (int) size.x, (int) size.y);
     }
 
-    public Rectangle getBounds() {
-        return new Rectangle((int) pos.x, (int) pos.y, (int) size.x, (int) size.y);
-    }
-
-    public Vec2 getPos() {
-        return pos;
-    }
-
-    public void setPos(Vec2 pos) {
-        this.pos = pos;
-    }
-
-    public Vec2 getVel() {
-        return vel;
-    }
-
-    public void setVel(Vec2 vel) {
-        this.vel = vel;
-    }
-
-    public Vec2 getSize() {
-        return size;
-    }
-
-    public void setSize(Vec2 size) {
-        this.size = size;
-    }
-
-    public ID getId() {
-        return id;
-    }
-
-    public void setId(ID id) {
-        this.id = id;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
 }

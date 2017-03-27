@@ -1,7 +1,6 @@
 package com.phantasmph.game.Object;
 
 import com.phantasmph.game.Controller.GameManger;
-import com.phantasmph.game.Utility.ID;
 import com.phantasmph.game.Utility.Utility;
 
 import java.awt.*;
@@ -26,12 +25,8 @@ public class HUD extends GameObject {
         return hud;
     }
 
-    public ID getId() {
-        return ID.HUD;
-    }
-
     public void tick() {
-        color_green = HEALTH * 255 / 100;
+        color_green = GameManger.health * 255 / 100;
         color_green = Utility.cap(color_green, 0, 255);
     }
 
@@ -45,10 +40,6 @@ public class HUD extends GameObject {
 
         g.drawString("Score: " + GameManger.score, 20, 70);
         g.drawString("Level: " + GameManger.level, 20, 85);
-    }
-
-    public Rectangle getBounds() {
-        return null;
     }
 
 }

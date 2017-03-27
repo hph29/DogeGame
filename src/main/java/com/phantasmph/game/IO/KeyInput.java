@@ -24,22 +24,22 @@ public class KeyInput extends KeyAdapter {
         int key = e.getKeyCode();
         for (int i = 0; i < handler.getObjects().size(); i++) {
             GameObject tempObject = handler.getObjects().get(i);
-            if (tempObject.getId() == ID.Player) {
+            if (tempObject.id == ID.Player) {
                 Player player = (Player) tempObject;
                 if (key == KeyEvent.VK_W) {
-                    player.getVel().y = -5;
+                    player.vel.y = -5;
                     keyDown[0] = true;
                 }
                 if (key == KeyEvent.VK_S) {
-                    player.getVel().y = 5;
+                    player.vel.y = 5;
                     keyDown[1] = true;
                 }
                 if (key == KeyEvent.VK_A) {
-                    player.getVel().x = -5;
+                    player.vel.x = -5;
                     keyDown[2] = true;
                 }
                 if (key == KeyEvent.VK_D) {
-                    player.getVel().x = 5;
+                    player.vel.x = 5;
                     keyDown[3] = true;
                 }
             }
@@ -50,17 +50,17 @@ public class KeyInput extends KeyAdapter {
         int key = e.getKeyCode();
         for (int i = 0; i < handler.getObjects().size(); i++) {
             GameObject tempObject = handler.getObjects().get(i);
-            if (tempObject.getId() == ID.Player) {
+            if (tempObject.id == ID.Player) {
                 Player player = (Player) tempObject;
                 if (key == KeyEvent.VK_W) keyDown[0] = false;
                 if (key == KeyEvent.VK_S) keyDown[1] = false;
                 if (key == KeyEvent.VK_A) keyDown[2] = false;
                 if (key == KeyEvent.VK_D) keyDown[3] = false;
                 if (!keyDown[0] && !keyDown[1]) {
-                    player.getVel().y = 0;
+                    player.vel.y = 0;
                 }
                 if (!keyDown[2] && !keyDown[3]) {
-                    player.getVel().x = 0;
+                    player.vel.x = 0;
                 }
 
             }

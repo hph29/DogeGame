@@ -24,7 +24,7 @@ public class Utility {
         return new Vec2(Game.WIDTH / 2 - size.x, Game.HEIGHT / 2 - size.y);
     }
 
-    public static Vec2 randomPos(Vec2 size) {
+    public static Vec2 getRandomPos(Vec2 size) {
         return new Vec2(random.nextInt(Game.WIDTH - (int) size.x), random.nextInt(Game.HEIGHT - (int) size.y));
     }
 }

@@ -2,7 +2,6 @@ package com.phantasmph.game.Controller;
 
 import com.phantasmph.game.Object.EnemyFactory;
 import com.phantasmph.game.Object.GameObject;
-import com.phantasmph.game.Utility.ID;
 
 import java.awt.*;
 
@@ -24,10 +23,6 @@ public class Spawner extends GameObject {
         return spawner;
     }
 
-    public ID getId() {
-        return null;
-    }
-
     public void tick() {
         if (levelCounter != GameManger.level) {
             if (GameManger.level < 5) {
@@ -41,9 +36,5 @@ public class Spawner extends GameObject {
 
     public void render(Graphics g) {
 
-    }
-
-    public Rectangle getBounds() {
-        return null;
     }
 }

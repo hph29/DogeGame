@@ -37,17 +37,17 @@ public class Handler {
     public void render(Graphics g) {
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
-            if (tempObject.getId() != ID.HUD) tempObject.render(g);
+            if (tempObject.id != ID.HUD) tempObject.render(g);
         }
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
-            if (tempObject.getId() == ID.HUD) tempObject.render(g);
+            if (tempObject.id == ID.HUD) tempObject.render(g);
         }
     }
 
     public Player getPlayer() {
         for (int i = 0; i < object.size(); i++) {
-            if (object.get(i).getId() == ID.Player) {
+            if (object.get(i).id == ID.Player) {
                 return (Player) object.get(i);
             }
         }

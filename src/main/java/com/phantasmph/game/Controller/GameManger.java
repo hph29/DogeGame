@@ -1,7 +1,6 @@
 package com.phantasmph.game.Controller;
 
 import com.phantasmph.game.Object.GameObject;
-import com.phantasmph.game.Utility.ID;
 
 import java.awt.*;
 
@@ -11,6 +10,8 @@ import java.awt.*;
 public class GameManger extends GameObject {
     static public int score = 0;
     static public int level = 1;
+    static public int health = 100;
+
     private static GameManger instance;
 
     private GameManger() {
@@ -24,10 +25,6 @@ public class GameManger extends GameObject {
         return instance;
     }
 
-    public ID getId() {
-        return null;
-    }
-
     public void tick() {
         score++;
         level = (score / 100) + 1;
@@ -37,7 +34,4 @@ public class GameManger extends GameObject {
 
     }
 
-    public Rectangle getBounds() {
-        return null;
-    }
 }

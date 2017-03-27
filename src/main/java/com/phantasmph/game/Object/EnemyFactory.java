@@ -26,4 +26,8 @@ public class EnemyFactory {
         Handler.getInstance().addObject(new SmartEnemy(Utility.getRandomPos(C.SMALL_SIZE), C.VERY_SLOW_VELOCITY, C.SMALL_SIZE, Color.CYAN, ID.SmartEnemy));
     }
 
+    public void addBossEnemy() {
+        Handler.getInstance().addObject(new BossEnemy(C.MIDDLE_UP_POS, C.SLOW_VERTICAL_VELOCITY, C.BOSS_SIZE, ID.Boss1, Color.MAGENTA));
+    }
+
 }

@@ -7,6 +7,8 @@ public enum ID {
     Player,
     BasicEnemy,
     SmartEnemy,
+    Boss1,
     Trail,
+    Missle,
     HUD
 }

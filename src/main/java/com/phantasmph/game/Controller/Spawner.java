@@ -25,6 +25,9 @@ public class Spawner extends GameObject {
 
     public void tick() {
         if (levelCounter != GameManger.level) {
+            if (GameManger.level == 1) {
+                EnemyFactory.getInstance().addBossEnemy();
+            }
             if (GameManger.level < 5) {
                 EnemyFactory.getInstance().addBasicEnemy();
             } else if (GameManger.level == 5) {

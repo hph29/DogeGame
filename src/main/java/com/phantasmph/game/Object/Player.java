@@ -40,10 +40,12 @@ public class Player extends GameObject {
             if (tempObject.id == ID.BasicEnemy) {
                 if (bounds.intersects(tempObject.bounds)) {
                     HUD.HEALTH -= 2;
+                    //Handler.getInstance().removeObject(tempObject);
                 }
             } else if (tempObject.id == ID.SmartEnemy) {
                 if (bounds.intersects(tempObject.bounds)) {
                     HUD.HEALTH -= 1;
+                    //Handler.getInstance().removeObject(tempObject);
                 }
             }
         }

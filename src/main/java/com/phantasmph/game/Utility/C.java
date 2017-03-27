@@ -17,5 +17,9 @@ public class C {
     static public Vec2 HUD_HP_SIZE = new Vec2(200, 20);
     static public Vec2 MIDDLE_POS = new Vec2(Game.WIDTH / 2, Game.HEIGHT / 2);
 
+    static public Vec2 MIDDLE_UP_POS = new Vec2(Game.WIDTH / 2, -70);
+    static public Vec2 SLOW_VERTICAL_VELOCITY = new Vec2(0, 1);
+    static public Vec2 BOSS_SIZE = new Vec2(96, 96);
+
 
 }
